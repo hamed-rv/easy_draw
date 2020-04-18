@@ -51,33 +51,22 @@ class SampleCurveView(context: Context, attrs: AttributeSet?, defStyleAttr: Int)
                 canvas,
                 floatArrayOf(dpToPx(context, 2f), dpToPx(context, 2f))
         )
-        drawPlus(canvas)
+        drawMultiplicationSign(canvas)
     }
 
-    private fun drawLogo(canvas: Canvas?) {
+    //Draw multiplication sign drawable
+    private fun drawMultiplicationSign(canvas: Canvas?) {
         if (canvas == null) return
-        val logoDrawable = ContextCompat.getDrawable(context, R.drawable.ic_launcher_foreground)
-        logoDrawable?.setBounds(
-                (measuredWidth / 2 - logoDrawable.intrinsicWidth / 2),
-                (measuredHeight / 2 - logoDrawable.intrinsicHeight / 2) - dpToPx(context, 20f).toInt(),
-                (measuredWidth / 2 + logoDrawable.intrinsicWidth / 2),
-                (measuredHeight / 2 + logoDrawable.intrinsicHeight / 2) - dpToPx(context, 20f).toInt()
-        )
-        logoDrawable?.draw(canvas)
-    }
-
-    private fun drawPlus(canvas: Canvas?) {
-        if (canvas == null) return
-        val plusDrawable = ContextCompat.getDrawable(context, R.drawable.ic_close)
-        val startWidth = (343f.toResponsiveWidth() - (plusDrawable?.intrinsicWidth ?: 0)).toInt()
-        val startHeight = (234f.toResponsiveHeight() - (plusDrawable?.intrinsicHeight ?: 0)).toInt()
-        plusDrawable?.setBounds(
+        val multiplicationSignDrawable = ContextCompat.getDrawable(context, R.drawable.ic_close)
+        val startWidth = (343f.toResponsiveWidth() - (multiplicationSignDrawable?.intrinsicWidth ?: 0)).toInt()
+        val startHeight = (234f.toResponsiveHeight() - (multiplicationSignDrawable?.intrinsicHeight ?: 0)).toInt()
+        multiplicationSignDrawable?.setBounds(
                 startWidth,
                 startHeight,
-                startWidth + plusDrawable.intrinsicWidth,
-                startHeight + plusDrawable.intrinsicHeight
+                startWidth + multiplicationSignDrawable.intrinsicWidth,
+                startHeight + multiplicationSignDrawable.intrinsicHeight
         )
-        plusDrawable?.draw(canvas)
+        multiplicationSignDrawable?.draw(canvas)
     }
 
     private fun drawFooterGradientCurve(canvas: Canvas?) {
